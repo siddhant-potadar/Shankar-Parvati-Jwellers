@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शंकर पार्वती ज्वेलर्स</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Modal Styles */
+        #form-modal {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #form-container {
+            background: white;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        #close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <button id="admin-btn" style="position: fixed; top: 10px; right: 10px;">Admin</button>
+    
+    <div id="form-modal">
+        <div id="form-container">
+            <button id="close-btn">X</button>
+            <h2>Enter Your Details</h2>
+            <iframe id="google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSex89JpDSGJV-Q5Sgzjcyw20XFBLv-JWh2LFYnNXv0nnNyHWg/viewform?usp=header" style="width:100%; height:400px; border:none;" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <header>
+        <h1>शंकर पार्वती ज्वेलर्स</h1>
+        <p>राणाप्रताप चौक, मुरगूड | 9421109085</p>
+        <nav>
+            <a href="index.html">Home</a> | 
+            <a href="catalog.html">Catalog</a> | 
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Today's Gold Rate</h2>
+        <p id="gold-rate">Gold rate will appear here.</p>
+        
+        <form id="gold-rate-form" style="display: none;">
+            <label for="gold-rate-input">Enter Today's Gold Rate (per gram):</label><br>
+            <input type="number" id="gold-rate-input" placeholder="Enter rate" required><br><br>
+            <button type="submit">Update Rate</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 शंकर पार्वती ज्वेलर्स</p>
+    </footer>
+
+    <script>
+        document.getElementById("close-btn").addEventListener("click", function() {
+            document.getElementById("form-modal").style.display = "none";
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const adminButton = document.getElementById("admin-btn");
+            const goldRateForm = document.getElementById("gold-rate-form");
+            const goldRateDisplay = document.getElementById("gold-rate");
+            const goldRateInput = document.getElementById("gold-rate-input");
+            const formModal = document.getElementById("form-modal");
+            const adminPass = "Siddhant";
+
+            // Show form if already logged in
+            if (localStorage.getItem("isAdmin") === "true") {
+                goldRateForm.style.display = "block";
+            }
+
+            // Display stored gold rate if available
+            if (localStorage.getItem("goldRate")) {
+                goldRateDisplay.textContent = `Gold Rate: ₹${localStorage.getItem("goldRate")}/gm`;
+            }
+
+            // Admin login functionality
+            adminButton.addEventListener("click", function () {
+                if (localStorage.getItem("isAdmin") !== "true") {
+                    const password = prompt("Enter Admin Password:");
+                    if (password === adminPass) {
+                        localStorage.setItem("isAdmin", "true");
+                        goldRateForm.style.display = "block";
+                        alert("Welcome, Admin!");
+                    } else {
+                        alert("Incorrect password!");
+                    }
+                } else {
+                    alert("You are already logged in as Admin.");
+                    goldRateForm.style.display = "block";
+                }
+            });
+
+            // Gold rate update functionality
+            goldRateForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                const newRate = goldRateInput.value;
+                if (newRate) {
+                    localStorage.setItem("goldRate", newRate);
+                    goldRateDisplay.textContent = `Gold Rate: ₹${newRate}/gm`;
+                    alert("Gold rate updated successfully!");
+                }
+            });
+
+            // Check if user has already filled the form
+            if (!localStorage.getItem("formSubmitted")) {
+                formModal.style.display = "flex";
+            }
+        });
+    </script>
+</body>
+</html>
