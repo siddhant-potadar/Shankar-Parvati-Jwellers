@@ -1,0 +1,158 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Align all content to center */
+}
+h1 {
+    color: red;
+    background-color: rgb(218, 218, 163);
+    padding: 20px;
+}
+
+h2 {
+    color: black; /* Changed color */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: rgb(59, 55, 31);
+}
+
+#gold-rate {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+
+#gold-rate-form {
+    border: 2px solid rgb(56, 31, 31);
+    padding: 15px;
+    border-radius: 10px;
+    background: #fffbea;
+    display: inline-block; /* Keep form width limited */
+    text-align: center; /* Align form content */
+}
+
+button {
+    background: rgb(37, 4, 4);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: rgb(59, 55, 31);
+    color: black;
+}
+
+#admin-btn {
+    background: rgb(37, 4, 4);
+    color: white;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#form-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#form-container {
+    background: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border: 2px solid gold;
+}
+
+#close-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    border-top: 2px solid gold;
+}
+.catalogue-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2-column layout */
+    gap: 10px;
+    justify-content: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.thumbnail {
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+#image-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+#popup-img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
