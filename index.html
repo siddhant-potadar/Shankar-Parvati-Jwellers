@@ -8,7 +8,7 @@
     <style>
         /* Modal Styles */
         #form-modal {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -41,6 +41,7 @@
 <body>
     <button id="admin-btn" style="position: fixed; top: 10px; right: 10px;">Admin</button>
     
+    <!-- Google Form Modal -->
     <div id="form-modal">
         <div id="form-container">
             <button id="close-btn">X</button>
@@ -49,6 +50,7 @@
         </div>
     </div>
 
+    <!-- Header -->
     <header>
         <h1>शंकर पार्वती ज्वेलर्स</h1>
         <p>राणाप्रताप चौक, मुरगूड | 9421109085</p>
@@ -59,6 +61,7 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
         <h2>Today's Gold Rate</h2>
         <p id="gold-rate">Gold rate will appear here.</p>
@@ -74,62 +77,11 @@
         <p>&copy; 2025 शंकर पार्वती ज्वेलर्स</p>
     </footer>
 
-    <script>
-        document.getElementById("close-btn").addEventListener("click", function() {
-            document.getElementById("form-modal").style.display = "none";
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const adminButton = document.getElementById("admin-btn");
-            const goldRateForm = document.getElementById("gold-rate-form");
-            const goldRateDisplay = document.getElementById("gold-rate");
-            const goldRateInput = document.getElementById("gold-rate-input");
-            const formModal = document.getElementById("form-modal");
-            const adminPass = "Siddhant";
-
-            // Show form if already logged in
-            if (localStorage.getItem("isAdmin") === "true") {
-                goldRateForm.style.display = "block";
-            }
-
-            // Display stored gold rate if available
-            if (localStorage.getItem("goldRate")) {
-                goldRateDisplay.textContent = `Gold Rate: ₹${localStorage.getItem("goldRate")}/gm`;
-            }
-
-            // Admin login functionality
-            adminButton.addEventListener("click", function () {
-                if (localStorage.getItem("isAdmin") !== "true") {
-                    const password = prompt("Enter Admin Password:");
-                    if (password === adminPass) {
-                        localStorage.setItem("isAdmin", "true");
-                        goldRateForm.style.display = "block";
-                        alert("Welcome, Admin!");
-                    } else {
-                        alert("Incorrect password!");
-                    }
-                } else {
-                    alert("You are already logged in as Admin.");
-                    goldRateForm.style.display = "block";
-                }
-            });
-
-            // Gold rate update functionality
-            goldRateForm.addEventListener("submit", function (event) {
-                event.preventDefault();
-                const newRate = goldRateInput.value;
-                if (newRate) {
-                    localStorage.setItem("goldRate", newRate);
-                    goldRateDisplay.textContent = `Gold Rate: ₹${newRate}/gm`;
-                    alert("Gold rate updated successfully!");
-                }
-            });
-
-            // Check if user has already filled the form
-            if (!localStorage.getItem("formSubmitted")) {
-                formModal.style.display = "flex";
-            }
-        });
-    </script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    
+    <!-- External Script -->
+    <script src="js/goldrate.js"></script>
 </body>
 </html>
