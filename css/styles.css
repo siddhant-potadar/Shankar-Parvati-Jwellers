@@ -2,16 +2,17 @@ body {
     background-color: white;
     color: black;
     font-family: Arial, sans-serif;
-    text-align: center; /* Align all content to center */
+    text-align: center;
 }
+
 h1 {
-    color: red;
-    background-color: rgb(218, 218, 163);
-    padding: 20px;
+    color: #8B0000;
+    background-color: #E6D2A6;
+    padding: 30px;
 }
 
 h2 {
-    color: black; /* Changed color */
+    color: black;
 }
 
 nav {
@@ -21,33 +22,33 @@ nav {
 }
 
 nav a {
-    color: red;
+    color: #8B0000;
     text-decoration: none;
     font-weight: bold;
 }
 
 nav a:hover {
-    color: rgb(59, 55, 31);
+    color: #5C0000;
 }
 
 #gold-rate {
     font-size: 20px;
     font-weight: bold;
-    color: red;
+    color: #8B0000;
 }
 
 #gold-rate-form {
-    border: 2px solid rgb(56, 31, 31);
+    border: 2px solid #8B0000;
     padding: 15px;
     border-radius: 10px;
-    background: #fffbea;
-    display: inline-block; /* Keep form width limited */
-    text-align: center; /* Align form content */
+    background: #F5E6C3;
+    display: inline-block;
+    text-align: center;
 }
 
 button {
-    background: rgb(37, 4, 4);
-    color: white;
+    background: #8B0000;
+    color: #FFFFFF;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
@@ -56,13 +57,13 @@ button {
 }
 
 button:hover {
-    background: rgb(59, 55, 31);
-    color: black;
+    background: #5C0000;
+    color: #FFFFFF;
 }
 
 #admin-btn {
-    background: rgb(37, 4, 4);
-    color: white;
+    background: #8B0000;
+    color: #FFFFFF;
     position: fixed;
     top: 10px;
     right: 10px;
@@ -77,42 +78,42 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(139, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
 #form-container {
-    background: white;
+    background: #F5E6C3;
     padding: 20px;
     width: 90%;
     max-width: 600px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
     text-align: center;
-    border: 2px solid gold;
+    border: 2px solid #8B0000;
 }
 
 #close-btn {
-    background: red;
-    color: white;
+    background: #8B0000;
+    color: #FFFFFF;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
 }
 
 footer {
-    background-color: white;
     color: black;
+    background-color: #E6D2A6;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     font-weight: bold;
-    border-top: 2px solid gold;
 }
+
 .catalogue-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2-column layout */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     justify-content: center;
     max-width: 500px;
@@ -136,7 +137,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(139, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
 }
@@ -152,7 +153,6 @@ footer {
     top: 15px;
     right: 25px;
     font-size: 30px;
-    color: white;
+    color: #FFFFFF;
     cursor: pointer;
 }
-
