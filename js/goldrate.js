@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         db.ref("goldRate").on("value", (snapshot) => {
             if (snapshot.exists()) {
                 let goldRate = snapshot.val();
-                goldRateDisplay.textContent = `₹ ${goldRate} per gram`;
+                goldRateDisplay.textContent = `₹ ${goldRate} per 10 gram`;
             } else {
                 goldRateDisplay.textContent = "Gold rate not available.";
             }
